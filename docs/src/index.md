@@ -1,7 +1,7 @@
 ---
 layout: home
 hero:
-  name: Foundry Azure Local Chat
+  name: Sovereign Chat Experience Starter
   text: Plug-and-Play Chat Baseline
   tagline: A modern foundation for building AI chat experiences with Microsoft Foundry
   actions:

@@ -1,6 +1,6 @@
-# foundry-azure-local-chat — Infrastructure
+# sovereign-chat-experience-starter — Infrastructure
 
-Deploy foundry-azure-local-chat to Azure Arc-connected AKS clusters using `azd` (Azure Developer CLI).
+Deploy sovereign-chat-experience-starter to Azure Arc-connected AKS clusters using `azd` (Azure Developer CLI).
 
 ## Prerequisites
 

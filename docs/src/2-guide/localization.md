@@ -4,7 +4,7 @@ order: 4
 
 # Localization
 
-Foundry Azure Local Chat supports localization with all UI strings externalized.
+Sovereign Chat Experience Starter supports localization with all UI strings externalized.
 
 > **Note:** Currently only **English** is implemented. The i18n framework is in place and ready for adding new languages, but no additional language files ship with the project yet.
 
@@ -49,9 +49,9 @@ function MyComponent() {
 | Key | Default Value |
 |-----|---------------|
 | `chat.welcomeTitle` | `"Hi, how can I help you?"` |
-| `chat.name` | `"Foundry Azure Local Chat"` |
+| `chat.name` | `"Sovereign Chat Experience Starter"` |
 | `chat.placeholder` | `"Message chat"` |
-| `chat.ariaLabel` | `"Foundry Azure Local Chat"` |
+| `chat.ariaLabel` | `"Sovereign Chat Experience Starter"` |
 | `chat.aiDisclaimer` | `"AI-generated content may be incorrect"` |
 | `chat.promptStartersLabel` | `"Suggested prompts"` |
 | `chat.promptStartersShowMore` | `"See more"` |
@@ -89,7 +89,7 @@ getText('myFeature.description', 'dynamic')
 export const es = {
   chat: {
     welcomeTitle: '¡Hola, cómo puedo ayudarte?',
-    name: 'Foundry Azure Local Chat',
+    name: 'Sovereign Chat Experience Starter',
     // ... all other strings
   },
 };
@@ -127,8 +127,8 @@ greeting: 'Hello {0}, welcome to {1}!',
 getText('sendPrompt', 'Help me write')
 // → "Send prompt: Help me write"
 
-getText('greeting', 'John', 'Foundry Azure Local Chat')
-// → "Hello John, welcome to Foundry Azure Local Chat!"
+getText('greeting', 'John', 'Sovereign Chat Experience Starter')
+// → "Hello John, welcome to Sovereign Chat Experience Starter!"
 ```
 
 ## Best Practices
@@ -137,4 +137,3 @@ getText('greeting', 'John', 'Foundry Azure Local Chat')
 2. **Descriptive keys** - Use dot notation: `feature.element.action`
 3. **Keep strings short** - Long text should be in docs, not UI
 4. **Test with long strings** - Some languages expand text by 30%+
-

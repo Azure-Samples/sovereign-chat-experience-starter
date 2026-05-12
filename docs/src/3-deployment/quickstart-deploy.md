@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide walks you through deploying the Foundry Azure Local Chat application to your Azure subscription. Choose the deployment environment that best suits your needs.
+This guide walks you through deploying the Sovereign Chat Experience Starter application to your Azure subscription. Choose the deployment environment that best suits your needs.
 
 This template uses **gpt-4o-mini** which may not be available in all Azure regions. Check for [up-to-date region availability](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly.
 
@@ -111,7 +111,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 1. Bring down the template code:
 
     ```shell
-    azd init --template foundry-azure-local-chat
+    azd init --template sovereign-chat-experience-starter
     ```
 
 2. Sign into your Azure account:

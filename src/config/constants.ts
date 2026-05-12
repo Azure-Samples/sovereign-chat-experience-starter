@@ -33,9 +33,9 @@ const DEFAULTS: TypedConfigOptions = {
   "query.theme": "theme",
 
   // App info
-  "app.name": "Foundry Azure Local Chat",
+  "app.name": "Sovereign Chat Experience Starter",
   "app.version": "1.0.0",
-  "app.title": "Foundry Azure Local Chat",
+  "app.title": "Sovereign Chat Experience Starter",
   "app.favicon": "",
 
   // Copilot settings

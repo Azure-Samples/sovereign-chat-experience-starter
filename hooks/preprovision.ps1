@@ -739,7 +739,7 @@ if ($AUTO_YES) {
 # ── Path C: Provisioned + deployed — redeploy or modify? ────────────────
 if ((Get-Val "PROVISION_DONE") -eq "true" -and (Get-Val "DEPLOY_DONE") -eq "true") {
     Write-Host ""
-    Write-Host "  ${BOLD}${MAGENTA}`u{1F680} foundry-azure-local-chat${NC}"
+    Write-Host "  ${BOLD}${MAGENTA}`u{1F680} sovereign-chat-experience-starter${NC}"
     Write-Host ""
 
     $_P = Get-Val "ARC_PREFIX"
@@ -781,7 +781,7 @@ if ((Get-Val "PROVISION_DONE") -eq "true" -and (Get-Val "DEPLOY_DONE") -eq "true
 # ── Path D: Provisioned but not deployed — recipe or configure ──────────
 if ((Get-Val "PROVISION_DONE") -eq "true") {
     Write-Host ""
-    Write-Host "  ${BOLD}${MAGENTA}`u{1F680} foundry-azure-local-chat `u{2014} Configure Deployment${NC}"
+    Write-Host "  ${BOLD}${MAGENTA}`u{1F680} sovereign-chat-experience-starter `u{2014} Configure Deployment${NC}"
     Write-Host "  ${DIM}Infrastructure is ready. Choose how to deploy.${NC}"
     Write-Host ""
     Write-Host "    ${BOLD}1)${NC} ${GREEN}all${NC} ${DIM}`u{2014} Full stack + MS Foundry (gpt-4o-mini)${NC}"
@@ -812,7 +812,7 @@ if ((Get-Val "PROVISION_DONE") -eq "true") {
 
 # ── Path E: First run — recipe picker or full wizard ───────────────────
 Write-Host ""
-Write-Host "  ${BOLD}${MAGENTA}`u{1F680} foundry-azure-local-chat `u{2014} Setup${NC}"
+Write-Host "  ${BOLD}${MAGENTA}`u{1F680} sovereign-chat-experience-starter `u{2014} Setup${NC}"
 Write-Host ""
 Write-Host "  ${DIM}Choose a deployment recipe or configure manually.${NC}"
 Write-Host ""

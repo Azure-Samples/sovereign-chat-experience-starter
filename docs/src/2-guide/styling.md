@@ -4,7 +4,7 @@ order: 5
 
 # Styling
 
-Foundry Azure Local Chat uses Griffel (CSS-in-JS) for styling with a typed style system.
+Sovereign Chat Experience Starter uses Griffel (CSS-in-JS) for styling with a typed style system.
 
 ## Overview
 

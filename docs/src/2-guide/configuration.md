@@ -4,7 +4,7 @@ order: 3
 
 # Configuration
 
-Foundry Azure Local Chat uses a type-safe configuration system with full autocomplete support.
+Sovereign Chat Experience Starter uses a type-safe configuration system with full autocomplete support.
 
 ## Overview
 
@@ -81,9 +81,9 @@ config.isNotEmpty("chat.maxLength")
 
 | Key           | Type   | Default            | Description                       |
 | ------------- | ------ | ------------------ | --------------------------------- |
-| `app.name`    | string | `"Foundry Azure Local Chat"`   | Application display name          |
+| `app.name`    | string | `"Sovereign Chat Experience Starter"`   | Application display name          |
 | `app.version` | string | `"1.0.0"`          | Application version number        |
-| `app.title`   | string | `"Foundry Azure Local Chat"`   | Page title (shown in browser tab) |
+| `app.title`   | string | `"Sovereign Chat Experience Starter"`   | Page title (shown in browser tab) |
 | `app.favicon` | string | `"/favicon.ico"`   | Path to favicon file              |
 
 ### Storage Keys

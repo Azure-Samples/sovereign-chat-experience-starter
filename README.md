@@ -1,4 +1,4 @@
-# Foundry Azure Local Chat
+# Sovereign Chat Experience Starter
 
 A reusable Chat UI for AI experiences, built on the Azure OpenAI Responses API standard and Fluent AI components. It connects to a MS Foundry project and is designed to be deployed on Azure Kubernetes Service (AKS) clusters. The application features a chat interface, chat history, streaming responses, and a pluggable provider architecture that supports both live MS Foundry backends and an in-memory mock mode for offline development.
 
@@ -44,7 +44,7 @@ This project framework provides the following features:
 
 <br/>
 
-| ![Application screenshot showing the Foundry Azure Local Chat interface with sidebar chat history and message input](docs/images/output_screenshot.png) |
+| ![Application screenshot showing the Sovereign Chat Experience Starter interface with sidebar chat history and message input](docs/images/output_screenshot.png) |
 |---|
 
 ### Demo Video

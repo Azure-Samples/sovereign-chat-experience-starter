@@ -6,9 +6,9 @@ const TEXT = {
   "general.pageNotFound": "Sorry, we can't find that page.",
 
   // Chat
-  "chat.name": "Foundry Azure Local Chat",
+  "chat.name": "Sovereign Chat Experience Starter",
   "chat.placeholder": "Message chat",
-  "chat.ariaLabel": "Foundry Azure Local Chat",
+  "chat.ariaLabel": "Sovereign Chat Experience Starter",
   "chat.emptyState": "How can I help you today?",
   "chat.welcomeTitle": "Hi, how can I help you?",
   "chat.error": "Sorry, there was an error processing your request.",

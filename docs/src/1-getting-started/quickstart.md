@@ -16,7 +16,7 @@ order: 1
 ```bash
 # Clone the repository
 git clone https://your-repo-url
-cd foundry-azure-local-chat
+cd sovereign-chat-experience-starter
 
 # Install dependencies
 npm install

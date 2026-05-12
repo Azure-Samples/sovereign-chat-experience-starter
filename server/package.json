@@ -1,7 +1,7 @@
 {
-  "name": "foundry-azure-local-chat-server",
+  "name": "sovereign-chat-experience-starter-server",
   "version": "1.0.0",
-  "description": "Backend server for Foundry Azure Local Chat with Microsoft Foundry",
+  "description": "Backend server for Sovereign Chat Experience Starter with Microsoft Foundry",
   "type": "module",
   "main": "index.ts",
   "scripts": {
