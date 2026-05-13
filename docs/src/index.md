@@ -10,7 +10,7 @@ hero:
       link: /1-getting-started/quickstart
     - theme: alt
       text: View on GitHub
-      link: https://github.com/Azure-Samples/foundry-azure-local-chat
+      link: https://github.com/Azure-Samples/sovereign-chat-experience-starter
 features:
   - icon: 💬
     title: Chat Component

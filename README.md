@@ -65,7 +65,7 @@ This template uses **gpt-4o-mini** which may not be available in all Azure regio
 
 <br/>
 
-| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/foundry-azure-local-chat) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/foundry-azure-local-chat) |
+| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/sovereign-chat-experience-starter) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/sovereign-chat-experience-starter) |
 |---|---|
 
 <br/>
@@ -106,7 +106,7 @@ This template has [Managed Identity](https://learn.microsoft.com/entra/identity/
 
 ## Provide Feedback
 
-Have questions, find a bug, or want to request a feature? [Submit a new issue](https://github.com/Azure-Samples/foundry-azure-local-chat/issues) on this repo and we'll connect.
+Have questions, find a bug, or want to request a feature? [Submit a new issue](https://github.com/Azure-Samples/sovereign-chat-experience-starter/issues) on this repo and we'll connect.
 
 <br/>
 

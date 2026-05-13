@@ -39,7 +39,7 @@ export default withMermaid(defineConfig({
       excludeFilesByFrontmatterFieldName: "exclude",
       includeFolderIndexFile: false,
     }),
-    socialLinks: [{ icon: "github", link: "https://github.com/Azure-Samples/foundry-azure-local-chat" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/Azure-Samples/sovereign-chat-experience-starter" }],
     search: {
       provider: "local",
     },
