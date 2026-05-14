@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-# Toggle server settings for foundry-azure-local-chat
+# Toggle server settings for sovereign-chat-experience-starter
 
 set -e
 
@@ -73,7 +73,7 @@ toggle_provider() {
 # Main menu
 main() {
     echo ""
-    echo "🔧 Foundry Azure Local Chat - Server Toggle"
+    echo "🔧 Sovereign Chat Experience Starter - Server Toggle"
     echo "=================================="
     echo ""
     

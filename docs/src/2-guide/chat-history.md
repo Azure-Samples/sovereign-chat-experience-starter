@@ -6,7 +6,7 @@ order: 2
 
 ## Overview
 
-Foundry Azure Local Chat includes built-in conversation management with a sidebar history interface, allowing users to:
+Sovereign Chat Experience Starter includes built-in conversation management with a sidebar history interface, allowing users to:
 
 - Create new conversations
 - View conversation history

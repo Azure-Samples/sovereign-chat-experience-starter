@@ -22,7 +22,7 @@ The frontend connects to **any backend** implementing the OpenAI Conversations A
 
 <LiteTree>
 ---
-- foundry-azure-local-chat/
+- sovereign-chat-experience-starter/
     + src/                          // Frontend React app
         components/
         config/                    // App constants + runtime env override

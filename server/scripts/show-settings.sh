@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-# Show current server settings for foundry-azure-local-chat
+# Show current server settings for sovereign-chat-experience-starter
 
 set -e
 

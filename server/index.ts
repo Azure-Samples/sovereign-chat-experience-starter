@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 /**
- * Foundry Azure Local Chat Server
+ * Sovereign Chat Experience Starter Server
  *
  * Reference implementation for Microsoft Foundry integration.
  * See /server/routes for API endpoints.

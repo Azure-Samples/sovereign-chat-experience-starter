@@ -18,7 +18,7 @@ import { DefaultAzureCredential } from "@azure/identity";
 const endpoint = process.env.AI_PROJECT_ENDPOINT;
 const model = process.env.AI_MODEL_DEPLOYMENT || process.env.AI_MODEL_NAME || "gpt-4o-mini";
 const agentName = process.env.AGENT_NAME || "foundry-chat-agent";
-const instructions = process.env.AGENT_INSTRUCTIONS || "You are a helpful AI assistant for the Foundry Azure Local Chat application.";
+const instructions = process.env.AGENT_INSTRUCTIONS || "You are a helpful AI assistant for the Sovereign Chat Experience Starter application.";
 
 if (!endpoint) {
   console.error("❌ AI_PROJECT_ENDPOINT is required");

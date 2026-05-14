@@ -43,11 +43,13 @@ const useStyles = makeStyles({
     overflowX: "hidden",
   },
   header: {
-    display: "grid",
-    gridTemplateColumns: "max-content 1fr max-content",
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
-    paddingInline: tokens.spacingHorizontalXS,
-    gap: tokens.spacingHorizontalS,
+    width: "100%",
+    boxSizing: "border-box",
+    paddingInline: 0,
+    gap: tokens.spacingHorizontalXXS,
     fontWeight: tokens.fontWeightSemibold,
   },
   headerButton: {
@@ -56,8 +58,9 @@ const useStyles = makeStyles({
     border: "none",
     display: "flex",
     alignItems: "center",
-    gap: tokens.spacingHorizontalS,
-    padding: `${tokens.spacingVerticalXS} ${tokens.spacingHorizontalS} ${tokens.spacingVerticalXS} 0`,
+    whiteSpace: "nowrap",
+    gap: tokens.spacingHorizontalXXS,
+    padding: `${tokens.spacingVerticalXS} 0 ${tokens.spacingVerticalXS} 0`,
     borderRadius: tokens.borderRadiusMedium,
     fontWeight: tokens.fontWeightSemibold,
     fontSize: tokens.fontSizeBase300,
@@ -170,7 +173,7 @@ export const ChatHistory = ({
         defaultOpenCategories={["chats"]}
         onNavItemSelect={handleValueChange}
       >
-        <CopilotNavDrawerHeader>
+        <CopilotNavDrawerHeader style={{ paddingInlineStart: 0 }}>
           <div className={styles.header}>
             <button className={styles.headerButton} onClick={handleAppHeaderClick} type="button">
               <AppIcon showKey="sidebar.showIcon" iconKey="sidebar.icon" size={20} />

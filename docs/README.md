@@ -1,6 +1,6 @@
-# Foundry Azure Local Chat Documentation
+# Sovereign Chat Experience Starter Documentation
 
-Documentation site for Foundry Azure Local Chat built with [VitePress](https://vitepress.dev/).
+Documentation site for Sovereign Chat Experience Starter built with [VitePress](https://vitepress.dev/).
 
 ## Development
 

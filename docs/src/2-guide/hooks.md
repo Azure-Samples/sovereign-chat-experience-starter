@@ -4,7 +4,7 @@ order: 7
 
 # Custom Hooks
 
-Foundry Azure Local Chat provides custom hooks for chat state management, UI behavior, and theming.
+Sovereign Chat Experience Starter provides custom hooks for chat state management, UI behavior, and theming.
 
 ## Overview
 

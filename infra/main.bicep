@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 // ============================================================
-// foundry-azure-local-chat — Main Bicep Orchestrator
+// sovereign-chat-experience-starter — Main Bicep Orchestrator
 // ============================================================
 // Creates Azure resources for K8s deployment.
 // Arc connection and K8s resources are handled by hooks.

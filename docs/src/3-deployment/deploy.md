@@ -4,7 +4,7 @@ order: 1
 
 # Deployment Guide
 
-Complete guide for deploying foundry-azure-local-chat to Azure using `azd`.
+Complete guide for deploying sovereign-chat-experience-starter to Azure using `azd`.
 
 ## Recipe-Based Deploy (Recommended)
 
@@ -76,7 +76,7 @@ azd up -- -y
 On a new machine (or fresh clone), resume with just the prefix and subscription:
 
 ```bash
-git clone <repo-url> && cd foundry-azure-local-chat
+git clone <repo-url> && cd sovereign-chat-experience-starter
 azd env new <existing-prefix>                     # must match original env name
 azd env set AZURE_SUBSCRIPTION_ID <sub-id>
 azd up

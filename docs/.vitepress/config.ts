@@ -5,8 +5,8 @@ import { generateSidebar } from "vitepress-sidebar";
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 export default withMermaid(defineConfig({
-  title: "Foundry Azure Local Chat",
-  description: "Documentation for Foundry Azure Local Chat",
+  title: "Sovereign Chat Experience Starter",
+  description: "Documentation for Sovereign Chat Experience Starter",
   srcDir: "src",
   outDir: "./dist",
   base: "/",
@@ -39,7 +39,7 @@ export default withMermaid(defineConfig({
       excludeFilesByFrontmatterFieldName: "exclude",
       includeFolderIndexFile: false,
     }),
-    socialLinks: [{ icon: "github", link: "https://github.com/Azure-Samples/foundry-azure-local-chat" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/Azure-Samples/sovereign-chat-experience-starter" }],
     search: {
       provider: "local",
     },

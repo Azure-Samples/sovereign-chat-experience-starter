@@ -1,4 +1,4 @@
-# Foundry Azure Local Chat
+# Sovereign Chat Experience Starter
 
 A reusable Chat UI for AI experiences, built on the Azure OpenAI Responses API standard and Fluent AI components. It connects to a MS Foundry project and is designed to be deployed on Azure Kubernetes Service (AKS) clusters. The application features a chat interface, chat history, streaming responses, and a pluggable provider architecture that supports both live MS Foundry backends and an in-memory mock mode for offline development.
 
@@ -44,7 +44,7 @@ This project framework provides the following features:
 
 <br/>
 
-| ![Application screenshot showing the Foundry Azure Local Chat interface with sidebar chat history and message input](docs/images/output_screenshot.png) |
+| ![Application screenshot showing the Sovereign Chat Experience Starter interface with sidebar chat history and message input](docs/images/output_screenshot.png) |
 |---|
 
 ### Demo Video
@@ -65,7 +65,7 @@ This template uses **gpt-4o-mini** which may not be available in all Azure regio
 
 <br/>
 
-| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/foundry-azure-local-chat) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/foundry-azure-local-chat) |
+| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/sovereign-chat-experience-starter) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/sovereign-chat-experience-starter) |
 |---|---|
 
 <br/>
@@ -106,7 +106,7 @@ This template has [Managed Identity](https://learn.microsoft.com/entra/identity/
 
 ## Provide Feedback
 
-Have questions, find a bug, or want to request a feature? [Submit a new issue](https://github.com/Azure-Samples/foundry-azure-local-chat/issues) on this repo and we'll connect.
+Have questions, find a bug, or want to request a feature? [Submit a new issue](https://github.com/Azure-Samples/sovereign-chat-experience-starter/issues) on this repo and we'll connect.
 
 <br/>
 

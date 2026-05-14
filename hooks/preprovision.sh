@@ -726,7 +726,7 @@ fi
 # ── Path C: Provisioned + deployed — redeploy or modify? ────────────────
 if [ "$(get_val "PROVISION_DONE")" = "true" ] && [ "$(get_val "DEPLOY_DONE")" = "true" ]; then
     echo ""
-    echo -e "  ${BOLD}${MAGENTA}🚀 foundry-azure-local-chat${NC}"
+    echo -e "  ${BOLD}${MAGENTA}🚀 sovereign-chat-experience-starter${NC}"
     echo ""
 
     # Show current config one-liner
@@ -768,7 +768,7 @@ fi
 # ── Path D: Provisioned but not deployed — recipe or configure ──────────
 if [ "$(get_val "PROVISION_DONE")" = "true" ]; then
     echo ""
-    echo -e "  ${BOLD}${MAGENTA}🚀 foundry-azure-local-chat — Configure Deployment${NC}"
+    echo -e "  ${BOLD}${MAGENTA}🚀 sovereign-chat-experience-starter — Configure Deployment${NC}"
     echo -e "  ${DIM}Infrastructure is ready. Choose how to deploy.${NC}"
     echo ""
     echo -e "    ${BOLD}1)${NC} ${GREEN}all${NC} ${DIM}— Full stack + MS Foundry (gpt-4o-mini)${NC}"
@@ -807,7 +807,7 @@ fi
 
 # ── Path D: First run — recipe picker or full wizard ───────────────────
 echo ""
-echo -e "  ${BOLD}${MAGENTA}🚀 foundry-azure-local-chat — Setup${NC}"
+echo -e "  ${BOLD}${MAGENTA}🚀 sovereign-chat-experience-starter — Setup${NC}"
 echo ""
 echo -e "  ${DIM}Choose a deployment recipe or configure manually.${NC}"
 echo ""

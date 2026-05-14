@@ -4,7 +4,7 @@ order: 8
 
 # Type System
 
-Foundry Azure Local Chat uses types from the `openai` npm package directly, ensuring compatibility with the OpenAI/Microsoft Foundry API contract.
+Sovereign Chat Experience Starter uses types from the `openai` npm package directly, ensuring compatibility with the OpenAI/Microsoft Foundry API contract.
 
 ## Overview
 
