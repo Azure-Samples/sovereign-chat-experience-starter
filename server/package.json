@@ -50,7 +50,7 @@
   },
   "overrides": {
     "fast-xml-parser": ">=5.4.1 <6",
-    "qs": ">=6.15.0 <7",
+    "qs": ">=6.15.2 <7",
     "minimatch": ">=10.2.4",
     "ajv": ">=8.18.0",
     "@eslint/eslintrc": {
