@@ -96,9 +96,6 @@ export class ChatCompletionsProvider implements DataProvider {
       input,
     );
 
-    // Persist user message
-    byomStore.addMessage(conv.id, "user", input);
-
     console.log(`[BYOM] Sending to: ${conv.id}, stream: ${stream}, messages: ${messages.length}`);
 
     if (stream) {
@@ -124,16 +121,22 @@ export class ChatCompletionsProvider implements DataProvider {
         isNew,
         stream: capturedStream,
         onStreamComplete: () => {
+          // Atomic persistence: only persist user+assistant pair if the stream produced output.
+          // If the upstream failed before any delta, or client aborted before any delta,
+          // no orphan user-only message is left behind.
           if (fullStreamedText) {
+            byomStore.addMessage(convId, "user", input);
             byomStore.addMessage(convId, "assistant", fullStreamedText);
           }
         },
       };
     }
 
-    // Non-streaming
+    // Non-streaming — atomic: only persist messages after upstream call succeeds.
+    // If createChatCompletion throws, no orphan user message is persisted.
     const completion = await byomService.createChatCompletion(messages, { signal });
     const assistantText = completion.choices?.[0]?.message?.content || "";
+    byomStore.addMessage(conv.id, "user", input);
     const assistantMsg = byomStore.addMessage(conv.id, "assistant", assistantText);
 
     console.log(`[BYOM] Response generated for: ${conv.id}`);
