@@ -69,7 +69,13 @@ app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📡 AI Project: ${process.env.AI_PROJECT_ENDPOINT || "(not configured)"}`);
-  console.log(`🤖 Agent: ${process.env.AI_AGENT_ID || "(not configured)"}`);
+  if (config.isApi()) {
+    console.log(`📡 AI Project: ${process.env.AI_PROJECT_ENDPOINT || "(not configured)"}`);
+    console.log(`🤖 Agent: ${process.env.AI_AGENT_ID || "(not configured)"}`);
+  } else if (config.isByom()) {
+    console.log(`🔌 BYOM Endpoint: ${process.env.BYOM_ENDPOINT}`);
+    console.log(`🤖 Model: ${process.env.BYOM_MODEL}`);
+    console.log(`🔐 Auth: ${process.env.BYOM_AUTH_MODE || "apikey"}`);
+  }
   config.log();
 });

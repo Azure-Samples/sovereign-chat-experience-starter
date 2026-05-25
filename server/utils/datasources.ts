@@ -3,16 +3,18 @@
 /**
  * Server Configuration
  *
- * DATASOURCES: "mock" | "api" (single source, toggleable at runtime)
+ * DATASOURCES: "mock" | "api" | "byom" (single source, toggleable at runtime)
  * STREAMING: "enabled" | "disabled" (toggleable at runtime)
  */
 
-export type DataSource = "mock" | "api";
+export type DataSource = "mock" | "api" | "byom";
+
+const validDataSources: DataSource[] = ["mock", "api", "byom"];
 
 /** Parse initial datasource from env */
 const parseDataSource = (): DataSource => {
-  const raw = (process.env.DATASOURCES || "api").trim().toLowerCase();
-  return raw === "mock" ? "mock" : "api";
+  const raw = (process.env.DATASOURCES || "api").trim().toLowerCase() as string;
+  return validDataSources.includes(raw as DataSource) ? (raw as DataSource) : "api";
 };
 
 /** Parse initial streaming from env */
@@ -45,9 +47,19 @@ const logChange = (type: "datasource" | "streaming", value: string): void => {
   let label: string;
 
   if (type === "datasource") {
-    color = isMock ? colors.yellow : colors.green;
-    emoji = isMock ? "🧪" : "🚀";
-    label = isMock ? "MOCK MODE" : "API MODE ";
+    if (isMock) {
+      color = colors.yellow;
+      emoji = "🧪";
+      label = "MOCK MODE";
+    } else if (value === "byom") {
+      color = colors.cyan;
+      emoji = "🔌";
+      label = "BYOM MODE";
+    } else {
+      color = colors.green;
+      emoji = "🚀";
+      label = "API MODE ";
+    }
   } else {
     color = isEnabled ? colors.cyan : colors.magenta;
     emoji = isEnabled ? "🌊" : "📦";
@@ -71,15 +83,20 @@ export const config = {
   /** Check if using API */
   isApi: (): boolean => activeSource === "api",
 
+  /** Check if using BYOM */
+  isByom: (): boolean => activeSource === "byom",
+
   /** Set datasource */
   setDatasource: (source: DataSource): void => {
     activeSource = source;
     logChange("datasource", source);
   },
 
-  /** Toggle datasource between mock and api */
+  /** Toggle datasource: mock → api → byom → mock */
   toggleDatasource: (): DataSource => {
-    activeSource = activeSource === "mock" ? "api" : "mock";
+    const order: DataSource[] = ["mock", "api", "byom"];
+    const currentIndex = order.indexOf(activeSource);
+    activeSource = order[(currentIndex + 1) % order.length];
     logChange("datasource", activeSource);
     return activeSource;
   },
@@ -112,12 +129,16 @@ export const config = {
 
   /** Log current configuration */
   log: (): void => {
-    const dsEmoji = activeSource === "mock" ? "🧪" : "🚀";
-    const dsLabel = activeSource === "mock" ? "Mock" : "Azure AI";
+    const dsMap: Record<DataSource, { emoji: string; label: string }> = {
+      mock: { emoji: "🧪", label: "Mock" },
+      api: { emoji: "🚀", label: "Azure AI" },
+      byom: { emoji: "🔌", label: "BYOM" },
+    };
+    const ds = dsMap[activeSource];
     const stEmoji = streamingEnabled ? "🌊" : "📦";
     const stLabel = streamingEnabled ? "enabled" : "disabled";
 
-    console.log(`${dsEmoji} Datasource: ${dsLabel}`);
+    console.log(`${ds.emoji} Datasource: ${ds.label}`);
     console.log(`${stEmoji} Streaming: ${stLabel}`);
   },
 };
@@ -140,3 +161,6 @@ export const datasources = {
 
 /** Check if should use mock (for middleware) */
 export const shouldUseMock = (): boolean => activeSource === "mock";
+
+/** Check if should use BYOM (for middleware) */
+export const shouldUseByom = (): boolean => activeSource === "byom";

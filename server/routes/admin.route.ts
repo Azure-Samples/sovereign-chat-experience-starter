@@ -11,7 +11,7 @@
  *
  * Endpoints:
  *   GET  /admin/config              - Get current config
- *   POST /admin/datasource          - Set datasource { source: "mock" | "api" }
+ *   POST /admin/datasource          - Set datasource { source: "mock" | "api" | "byom" }
  *   POST /admin/datasource/toggle   - Toggle datasource
  *   POST /admin/streaming           - Set streaming { enabled: boolean }
  *   POST /admin/streaming/toggle    - Toggle streaming
@@ -63,8 +63,8 @@ const isAiConfigured = (): boolean => {
 router.post("/datasource", (req, res) => {
   const { source } = req.body as { source?: DataSource };
 
-  if (!source || (source !== "mock" && source !== "api")) {
-    res.status(400).json({ error: "Invalid source. Use 'mock' or 'api'" });
+  if (!source || (source !== "mock" && source !== "api" && source !== "byom")) {
+    res.status(400).json({ error: "Invalid source. Use 'mock', 'api', or 'byom'" });
     return;
   }
 
@@ -85,24 +85,24 @@ router.post("/datasource", (req, res) => {
 });
 
 /**
- * POST /admin/datasource/toggle - Toggle between mock and api
+ * POST /admin/datasource/toggle - Toggle between datasources
  */
 router.post("/datasource/toggle", (_req, res) => {
-  const wouldBe = config.getStatus().datasource === "mock" ? "api" : "mock";
+  // Cycle through: mock → api → byom → mock
+  const order: DataSource[] = ["mock", "api", "byom"];
+  const current = config.getStatus().datasource;
+  const currentIndex = order.indexOf(current);
+  let nextSource = order[(currentIndex + 1) % order.length];
 
-  if (wouldBe === "api" && !isAiConfigured()) {
-    res.json({
-      error: "Cannot switch to API mode — AI_PROJECT_ENDPOINT and AI_AGENT_ID are not configured.",
-      message: "Staying in mock mode. Set the environment variables and restart to use API mode.",
-      ...config.getStatus(),
-    });
-    return;
+  // Skip api if not configured
+  if (nextSource === "api" && !isAiConfigured()) {
+    nextSource = order[(currentIndex + 2) % order.length];
   }
 
-  const newSource = config.toggleDatasource();
+  config.setDatasource(nextSource);
 
   res.json({
-    message: `Datasource toggled to: ${newSource}`,
+    message: `Datasource toggled to: ${nextSource}`,
     ...config.getStatus(),
   });
 });

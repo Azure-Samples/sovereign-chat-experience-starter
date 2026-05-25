@@ -17,8 +17,9 @@
  * ============================================
  */
 
-import { shouldUseMock } from "../utils/datasources";
+import { shouldUseByom, shouldUseMock } from "../utils/datasources";
 import { ApiProvider } from "./api";
+import { ChatCompletionsProvider } from "./byom";
 import { MockProvider } from "./mock";
 import type { DataProvider } from "./types";
 
@@ -27,6 +28,7 @@ export * from "./types";
 // Singleton instances
 let mockProvider: MockProvider | null = null;
 let apiProvider: ApiProvider | null = null;
+let chatCompletionsProvider: ChatCompletionsProvider | null = null;
 
 /** Get the active data provider based on runtime config */
 export const getProvider = (): DataProvider => {
@@ -35,6 +37,12 @@ export const getProvider = (): DataProvider => {
       mockProvider = new MockProvider();
     }
     return mockProvider;
+  }
+  if (shouldUseByom()) {
+    if (!chatCompletionsProvider) {
+      chatCompletionsProvider = new ChatCompletionsProvider();
+    }
+    return chatCompletionsProvider;
   }
   if (!apiProvider) {
     apiProvider = new ApiProvider();
