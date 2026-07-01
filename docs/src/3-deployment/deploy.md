@@ -32,6 +32,12 @@ Run `azd up` without setting `RECIPE` to walk through the interactive wizard wit
 azd up    # wizard prompts for region, VM size, AI mode, deploy scope, etc.
 ```
 
+For `k8s` deployments, install the Azure CLI `connectedk8s` extension before running `azd up`:
+
+```bash
+az extension add --name connectedk8s
+```
+
 ## Common Scenarios
 
 ### Dev/Test (Recipe: dev)

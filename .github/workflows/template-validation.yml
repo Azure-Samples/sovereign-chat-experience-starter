@@ -25,6 +25,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Prepare Azure CLI extensions
+        shell: pwsh
+        run: |
+          az version
+
+          $extDir = Join-Path $env:RUNNER_TEMP "azcliextensions"
+          New-Item -ItemType Directory -Force -Path $extDir | Out-Null
+          $env:AZURE_EXTENSION_DIR = $extDir
+          "AZURE_EXTENSION_DIR=$extDir" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+          az config set extension.use_dynamic_install=yes_without_prompt
+          az extension add --name connectedk8s --yes --only-show-errors
+          az extension show --name connectedk8s
+
+      - name: Install Bicep CLI
+        shell: pwsh
+        run: |
+          az bicep install
+
+          $bicepPath = Join-Path $env:USERPROFILE ".azure\bin\bicep.exe"
+          if (-not (Test-Path $bicepPath)) {
+            throw "Bicep CLI was not installed at $bicepPath"
+          }
+
+          "$(Split-Path $bicepPath)" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "PSRULE_AZURE_BICEP_PATH=$bicepPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          & $bicepPath --version
+
       - uses: microsoft/template-validation-action@Latest
         id: validation
         with:

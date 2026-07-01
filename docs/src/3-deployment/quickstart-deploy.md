@@ -105,6 +105,11 @@ A related option is VS Code Dev Containers, which will open the project in your 
 * [Python 3.9+](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
 * \[Windows Only\] [PowerShell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows) (latest version, with `pwsh.exe` on PATH)
+* Azure CLI `connectedk8s` extension:
+
+  ```shell
+  az extension add --name connectedk8s
+  ```
 
 #### Setup Steps:
 

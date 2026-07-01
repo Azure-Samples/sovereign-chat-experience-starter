@@ -7,6 +7,10 @@ Deploy sovereign-chat-experience-starter to Azure Arc-connected AKS clusters usi
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 - [Azure Developer CLI (azd)](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
 - bash (Linux, macOS, or WSL/Git Bash on Windows)
+- Azure CLI `connectedk8s` extension:
+  ```bash
+  az extension add --name connectedk8s
+  ```
 
 ## Quick Start
 
@@ -48,7 +52,7 @@ azd up
 | Min VM | D2s_v6 | D4s_v6 |
 | Pods | ~32 | ~62 |
 | Offline | Yes | No |
-| Extra config | — | `CUSTOM_LOCATION_OID` required |
+| Extra config | `connectedk8s` Azure CLI extension | `CUSTOM_LOCATION_OID` required |
 
 ## Environment Variables
 
