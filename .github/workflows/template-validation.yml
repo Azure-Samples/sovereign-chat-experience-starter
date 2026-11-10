@@ -46,7 +46,7 @@ jobs:
           "azure-mgmt-resource<26" | Out-File -FilePath $constraintPath -Encoding utf8
           "PIP_CONSTRAINT=$constraintPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-      - uses: microsoft/template-validation-action@Latest
+      - uses: microsoft/template-validation-action@bae4895d0a8abd4f0d5aad68ae8647b3027f4c91 # Latest
         id: validation
         with:
           useDevContainer: false
