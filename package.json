@@ -52,7 +52,7 @@
     "vite-plugin-html": "^3.2.2"
   },
   "overrides": {
-    "minimatch": ">=10.2.4",
+    "minimatch": ">=11.0.5",
     "ajv": ">=8.18.0",
     "@eslint/eslintrc": {
       "ajv": "^6.14.0"
