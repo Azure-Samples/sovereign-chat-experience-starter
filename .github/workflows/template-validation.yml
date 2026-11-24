@@ -1,12 +1,8 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-# Validates the repository against AI Gallery template Definition of Done (DoD) requirements
-# using the microsoft/template-validation-action.
-#
-# Prerequisites:
-#   Run `azd pipeline config` to configure the GitHub repository with the required
-#   variables, secrets, and federated credentials for OIDC authentication.
+# Runs non-deployment template and PSRule checks without Azure sign-in.
+# Full AI App Gallery deployment validation must run separately through an approved process.
 
 name: Template Validation
 
@@ -15,29 +11,13 @@ on:
 
 permissions:
   contents: read
-  id-token: write
-  pull-requests: write
 
 jobs:
   template_validation_job:
     runs-on: windows-latest
-    name: template validation
+    name: non-deployment template validation
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
-
-      - name: Prepare Azure CLI extensions
-        shell: pwsh
-        run: |
-          az version
-
-          $extDir = Join-Path $env:RUNNER_TEMP "azcliextensions"
-          New-Item -ItemType Directory -Force -Path $extDir | Out-Null
-          $env:AZURE_EXTENSION_DIR = $extDir
-          "AZURE_EXTENSION_DIR=$extDir" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
-          az config set extension.use_dynamic_install=yes_without_prompt
-          az extension add --name connectedk8s --yes --only-show-errors
-          az extension show --name connectedk8s
 
       - name: Prepare Python dependency constraints
         shell: pwsh
@@ -46,31 +26,24 @@ jobs:
           "azure-mgmt-resource<26" | Out-File -FilePath $constraintPath -Encoding utf8
           "PIP_CONSTRAINT=$constraintPath" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-      - uses: microsoft/template-validation-action@bae4895d0a8abd4f0d5aad68ae8647b3027f4c91 # Latest
+      - uses: microsoft/template-validation-action@bae4895d0a8abd4f0d5aad68ae8647b3027f4c91 # v0.4.4
         id: validation
         with:
+          validateAzd: false
           useDevContainer: false
+          validateTests: "None"
+          securityAction: PSRule
+          # Keep the static file checks without requiring the removed deployment workflow.
+          validatePaths: "README.md,LICENSE.md,SECURITY.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,ISSUE_TEMPLATE.md,azure.yaml,infra,.devcontainer"
         env:
           PYTHONUTF8: "1"
-          TEMPLATE_VALIDATION_MODE: true
+          README_H2_TAG: "## Features,## Getting Started,## Guidance,## Resources"
+          # This pinned action requires these non-secret IDs even with validateAzd: false.
+          # They satisfy its precheck only; no Azure credential or OIDC permission is supplied.
           AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
           AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
           AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-          AZURE_ENV_NAME: ${{ vars.AZURE_ENV_NAME }}
-          AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Infrastructure sizing — AKS cluster configuration
-          NODE_COUNT: ${{ vars.NODE_COUNT }}
-          VM_SIZE: ${{ vars.VM_SIZE }}
-          # Deployment scope
-          DEPLOY_SCOPE: ${{ vars.DEPLOY_SCOPE }}
-          # AI configuration — MS Foundry integration mode
-          AI_MODE: ${{ vars.AI_MODE }}
-          AI_MODEL_NAME: ${{ vars.AI_MODEL_NAME }}
-          AI_MODEL_VERSION: ${{ vars.AI_MODEL_VERSION }}
-          AI_MODEL_CAPACITY: ${{ vars.AI_MODEL_CAPACITY }}
-          AI_PROJECT_ENDPOINT: ${{ vars.AI_PROJECT_ENDPOINT }}
-          AI_AGENT_ID: ${{ vars.AI_AGENT_ID }}
 
       - name: print result
         shell: bash

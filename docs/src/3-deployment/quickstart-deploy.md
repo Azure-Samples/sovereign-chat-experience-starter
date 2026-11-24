@@ -8,6 +8,9 @@ This template uses **gpt-4o-mini** which may not be available in all Azure regio
 
   * We recommend using **East US** or **Sweden Central**
 
+Deploy manually with `azd up` using the steps below. The GitHub Template Validation
+workflow runs non-deployment checks only; it does not deploy to Azure.
+
 ## Choose Your Deployment Environment
 
 ### Environment Comparison
@@ -82,12 +85,6 @@ A related option is VS Code Dev Containers, which will open the project in your 
     azd up
     ```
 
-7. Configure a CI/CD pipeline:
-
-    ```shell
-    azd pipeline config
-    ```
-
 </details>
 <br>
 
@@ -123,6 +120,7 @@ A related option is VS Code Dev Containers, which will open the project in your 
 
     ```shell
     azd auth login
+    az login
     ```
 
 3. Installation:
@@ -142,12 +140,6 @@ A related option is VS Code Dev Containers, which will open the project in your 
     The interactive setup wizard will guide you through selecting your subscription, AKS configuration, AI mode (mock/create/bring-your-own), and deployment settings.
 
 5. Once deployment completes, `azd` will print the application URL. Open it in your browser to start chatting.
-
-6. Configure a CI/CD pipeline:
-
-    ```shell
-    azd pipeline config
-    ```
 
 #### Local Development
 
